@@ -1,0 +1,29 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block tile_block %}SERVICES{% endblock %} 
+{% block body_block %}
+
+<div class="theme-page padding-bottom-66">
+    <h2 class="box-header" style="margin-top:35px;">OUR SERVICES</h2>
+    <div class="clearfix">
+        <div class="row">
+            <ul class="services-list clearfix padding-top-70">
+                {% for service in services %}
+                <li>
+                    <a href="#" title="{{service.title}}">
+                        <img src="../../../../media/{{service.image}}" alt="">
+                    </a>
+                    <h4 class="box-header">
+                        <a href="#" title="{{service.title}}">{{service.title}}</a>
+                    </h4>
+                    <p>{{service.description}}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block title_block %}PROJECTS{% endblock %} 
+{% block body_block %}
+
+<div class="theme-page padding-bottom-66">
+    <h2 class="box-header" style="margin-top:35px;">OUR PROJECTS</h2>
+    <div class="clearfix bj-gallery">
+        <div class="row">
+            <ul class="tabs-navigation small gray isotope-filters margin-top-70">
+                <li><a class="selected" href="#filter-*" title="All Projects">All Projects</a></li>
+                {% for category in categories %}
+                <li><a href="#filter-{{category.name}}" title="{{category.name}}">{{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+            <ul class="projects-list isotope">
+                {% for work in works %}
+                    {% if work.before_photo_1 %}
+                    <li class="{{work.category}}">
+                        <a href="#" title="{{work.category}}">
+                            <img class="imgpg" src="../../../../media/{{work.before_photo_1}}" alt="">
+                        </a>
+                        <div class="view align-center">
+                            <div class="vertical-align-table">
+                                <div class="vertical-align-cell">
+                                    <p class="description">{{work.category}}</p>
+                                    <a class="more simple" href="../../../../media/{{work.before_photo_1}}" class="lightbox" title="{{work.category}}">ZOOM IN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if work.before_photo_2 %}
+                    <li class="{{work.category}}">
+                        <a href="#" title="{{work.category}}">
+                            <img src="../../../../media/{{work.before_photo_2}}" alt="">
+                        </a>
+                        <div class="view align-center">
+                            <div class="vertical-align-table">
+                                <div class="vertical-align-cell">
+                                    <p class="description">{{work.category}}</p>
+                                    <a class="more simple" href="../../../../media/{{work.before_photo_2}}" class="lightbox" title="{{work.category}}">ZOOM IN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if work.after_photo_1 %}
+                    <li class="{{work.category}}">
+                        <a href="#" title="{{work.category}}">
+                            <img src="../../../../media/{{work.after_photo_1}}" alt="">
+                        </a>
+                        <div class="view align-center">
+                            <div class="vertical-align-table">
+                                <div class="vertical-align-cell">
+                                    <p class="description">{{work.category}}</p>
+                                    <a class="more simple" href="../../../../media/{{work.after_photo_1}}" class="lightbox" title="{{work.category}}">ZOOM IN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if work.after_photo_2 %}
+                    <li class="{{work.category}}">
+                        <a href="#" title="{{work.category}}">
+                            <img src="../../../../media/{{work.after_photo_2}}" alt="">
+                        </a>
+                        <div class="view align-center">
+                            <div class="vertical-align-table">
+                                <div class="vertical-align-cell">
+                                    <p class="description">{{work.category}}</p>
+                                    <a class="more simple" href="../../../../media/{{work.after_photo_2}}" class="lightbox" title="{{work.category}}">ZOOM IN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

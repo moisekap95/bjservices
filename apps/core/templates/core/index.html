@@ -1,0 +1,179 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+{% block title_block %}Home{% endblock %} 
+
+{% block body_block %}
+
+<!-- Slider Revolution -->
+<div class="revolution-slider-container">
+    <div class="revolution-slider">
+        <ul style="display: none;">
+
+            <!-- SLIDE 1 -->
+            <li data-transition="fade" data-masterspeed="500" data-slotamount="1" data-delay="6000">
+                <!-- MAIN IMAGE -->
+                <img src="{% static 'images/slider/image_02.jpg' %}" alt="slidebg2" data-bgfit="cover">
+                <!-- LAYERS -->
+                <!-- LAYER 01 -->
+                <div class="tp-caption"
+                    data-frames='[{"delay":500,"speed":1200,"from":"x:40;o:0;","ease":"easeInOutExpo"},{"delay":"wait","speed":500,"to":"o:0;","ease":"easeInOutExpo"}]'
+                    data-x="0"
+                    data-y="140"
+                    >
+                    <!--data-start="500"
+                    data-transform_in="x:40;y:0;o:0;s:1200;e:easeInOutExpo;"
+                    data-transform_out="x:0;y:0;o:0;s:500;e:easeInOutExpo;"-->
+                    
+                    <div class="slider-content-box">
+                        <h2><a href="{% url 'services:list' %}" title="Services">PROFESSIONAL RENOVATION SERVICES</a></h2>
+                        <p>We combine quality workmanship, superior knowledge and low prices to provide you with service unmatched by our competitors.</p>
+                        <a target="_top" class="more simple" href="{% url 'enquiries:email' %}" title="CONTACT US">CONTACT US</a>
+                    </div>
+                </div>
+            </li>
+            
+            <!-- SLIDE 2 -->
+            <li data-transition="fade" data-masterspeed="500" data-slotamount="1" data-delay="6000">
+                <!-- MAIN IMAGE -->
+                <img src="{% static 'images/slider/money-saving.jpg' %}" alt="slidebg3" data-bgfit="cover">
+                <!-- LAYERS -->
+                <!-- LAYER 01 -->
+                <div class="tp-caption"
+                    data-frames='[{"delay":500,"speed":1200,"from":"x:40;o:0;","ease":"easeInOutExpo"},{"delay":"wait","speed":500,"to":"o:0;","ease":"easeInOutExpo"}]'
+                    data-x="0"
+                    data-y="140"
+                    >
+                    <!--data-start="500"
+                    data-transform_in="x:40;y:0;o:0;s:1200;e:easeInOutExpo;"
+                    data-transform_out="x:0;y:0;o:0;s:500;e:easeInOutExpo;"-->
+                    
+                    <div class="slider-content-box">
+                        <h2><a href="service_household_repairs.html" title="HOUSEHOLD REPAIRS">YOUR MOST AFFORDABLE CONTRACTOR</a></h2>
+                        <p>We have the experience, personel and resources to make the project run smoothly. We can ensure a job is done on time.</p>
+                        <a target="_top" class="more simple" href="{% url 'enquiries:email' %}" title="CONTACT US">CONTACT US</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--/-->
+
+<div class="theme-page">
+    <div class="clearfix">
+
+        <div class="row page-margin-top-section padding-bottom-66">
+            <h2 class="box-header">WHY CHOOSE BJ SERVICES</h2>
+            {% for company in companies %}
+            <p class="description align-center">{{company.description}}</p>
+            {% endfor %}
+            <div class="row page-margin-top">
+                <div class="column column-1-3">
+                    <ul class="features-list big">
+                        <li class="sl-large-house-1">
+                            <div class="ornament"></div>
+                            <h4 class="box-header page-margin-top">OVER 15 YEARS EXPERIENCE</h4>
+                            <p>Morbi nulla tortor, dignissim est node cursus euismod est arcu. Nomad at vehicula novum justo magna.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column column-1-3">
+                    <ul class="features-list big">
+                        <li class="sl-large-eco">
+                            <div class="ornament"></div>
+                            <h4 class="box-header page-margin-top">BEST MATERIALS</h4>
+                            <p>Morbi nulla tortor, dignissim est node cursus euismod est arcu. Nomad at vehicula novum justo magna.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column column-1-3">
+                    <ul class="features-list big">
+                        <li class="sl-large-garage">
+                            <div class="ornament"></div>
+                            <h4 class="box-header page-margin-top">PROFESSIONAL STANDARDS</h4>
+                            <p>Morbi nulla tortor, dignissim est node cursus euismod est arcu. Nomad at vehicula novum justo magna.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row full-width gray page-padding-top-section">
+            <div class="row">
+                <h2 class="box-header">SERVICES</h2>
+                <p class="description align-center">With over 15 years experience and real focus on customer satisfaction, you can rely on us for your next renovation,<br>driveway sett or home repair. We provide a professional service for private and commercial customers.</p>
+                <ul class="services-list clearfix page-margin-top">
+                    {% for service in services%}
+                    <li>
+                        <a href="#" title="Interior Renovation">
+                            <img src="../../../../media/{{service.image}}" alt="">
+                        </a>
+                        <h4 class="box-header"><a href="#" title="Interior Renovation">{{service.title}}</a></h4>
+                        <p>{{service.description}}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="align-center margin-top-67 padding-bottom-87">
+                    <a class="more" href="{% url 'services:list' %}" title="VIEW ALL SERVICES">VIEW ALL SERVICES</a>
+                </div>
+            </div>
+        </div>
+        <div class="row full-width page-margin-top-section">
+            <div class="row">
+                <h2 class="box-header">RECENT PROJECTS</h2>
+                <p class="description align-center">Here are a few of many projects we have completed for our customers. We provide a professional service<br>which includes consultation, free estimate, design, supply of materials and installation.</p>
+            </div>	
+            <ul class="projects-list clearfix page-margin-top">
+                {% for work in works %}
+                <li class="projectsFrame">
+                    <a href="{% url 'works:list' %}" title="{{work.category}}">
+                        <img class="imgp" src="../../../../media/{{work.after_photo_1}}" alt="">
+                    </a>
+                    <div class="view align-center">
+                        <div class="vertical-align-table">
+                            <div class="vertical-align-cell">
+                                <p class="description">{{work.category}}</p>
+                                <a class="more simple" href="{% url 'works:list' %}" title="MORE PICTURES">MORE PICTURES</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="row full-width padding-top-54 padding-bottom-61 align-center">
+            <h3><a class="more" href="{% url 'works:list' %}" title="MORE PICTURES">VIEW MORE PICTURES</a></h3>
+        </div>
+        <!--<div class="row gray full-width padding-top-bottom-50">
+            <div class="row">
+                <div class="column column-1-2 align-right padding-top-7">
+                    <h3>EXPLORE OUR PROJECTS</h3>
+                </div>
+                <div class="column column-1-2">
+                    <a class="more float" href="projects.html" title="VIEW ALL PROJECTS">VIEW ALL PROJECTS</a>
+                </div>
+            </div>
+        </div>-->
+        <div class="row full-width padding-top-70 padding-bottom-66 parallax parallax-1">	
+            <h2 class='reviewsH2'>CUSTOMER REVIEWS</h2>
+            <div class="row testimonials-container">
+                <a href="#" class="slider-control left template-arrow-left-1"></a>
+                <ul class="testimonials-list">
+                    {% for review in reviews %}
+                    <li class="sl-small-conversation">
+                        <div class="ornament"></div>
+                        <p>{{review.content}}</p>
+                        <div class="author">{{review.name}}</div>
+                        <div class="author-details">{{review.position}} at {{review.company}}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a href="#" class="slider-control right template-arrow-left-1"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
